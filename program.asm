@@ -1,0 +1,9 @@
+TEST START 0 
+. L 1,FIVE
+. A 1,SIX
+. ST 1,TEMP
+. PRINT TEMP 
+FIVE DC =F'2'
+SIX DC =F'3'
+TEMP DS 1F
+. END . .
