@@ -122,3 +122,65 @@ int check_label(int k)
  return 0;
 }
 
+/*Input:
+$vi int.txt
+=t1 2
+[]=a 0 1
+[]=a 1 2
+[]=a 2 3
+*t1 6 t2
++a[2] t2 t3
+-a[2] t1 t2
+/t3 t2 t2
+uminus t2 t2
+print t2
+goto t2 t3
+=t3 99
+uminus 25 t2
+*t2 t3 t3
+uminus t1 t1
++t1 t3 t4
+print t4
+Output:
+Enter filename of the intermediate code: int.txt
+STORE t1,2
+STORE a[0],1
+STORE a[1],2
+STORE a[2],3
+LOAD t1,R0
+LOAD 6,R1
+ADD R1,R0
+STORE R0,t3
+LOAD a[2],R0
+LOAD t2,R1
+ADD R1,R0
+STORE R0,t3
+LOAD a[t2],R0
+LOAD t1,R1
+SUB R1,R0
+STORE R0,t2
+LOAD t3,R0
+LOAD t2,R1
+DIV R1,R0
+STORE R0,t2
+LOAD t2,R1
+STORE R1,t2
+LOAD t2,R0
+JGT 5,label#11
+Label#11: OUT t2
+ JMP t2,label#13
+Label#13: STORE t3,99
+ LOAD 25,R1
+ STORE R1,t2
+ LOAD t2,R0
+ LOAD t3,R1
+ MUL R1,R0
+ STORE R0,t3
+ LOAD t1,R1
+ STORE R1,t1
+ LOAD t1,R0
+ LOAD t3,R1
+ ADD R1,R0
+ STORE R0,t4
+ OUT t4
+*/
